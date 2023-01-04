@@ -6,30 +6,24 @@
 
   let msg = ''
 
-  // Prepare to connect to the Discord API
   const client = new Client({
     intents: [
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMessages,
       GatewayIntentBits.MessageContent,
     ],
-  });
-
-  // Log the bot into Discord
+  });  
   client.login(import.meta.env.VITE_DISCORD_TOKEN);
   console.log("ChatGPT Bot is online on Discord");
 
-  // Preoare connection to OpenAI API
   const configuration = new Configuration({
     organization: "org-CNyAxWDWmtUylw5fFDP3pLmc",
     apiKey: import.meta.env.VITE_OPENAI_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
-  // Check for when a message on discord is sent
   client.on("messageCreate", async (message) => {
     try {
-      // Don't respond to yourself or other bots
       if (message.author.bot) return;
 
       const gptRes = await openai.createCompletion({
