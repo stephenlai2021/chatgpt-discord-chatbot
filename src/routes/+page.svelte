@@ -16,13 +16,13 @@
   });
 
   // Log the bot into Discord
-  client.login(import.meta.env.DISCORD_TOKEN);
+  client.login(import.meta.env.VITE_DISCORD_TOKEN);
   console.log("ChatGPT Bot is online on Discord");
 
   // Preoare connection to OpenAI API
   const configuration = new Configuration({
     organization: "org-CNyAxWDWmtUylw5fFDP3pLmc",
-    apiKey: import.meta.env.OPENAI_KEY,
+    apiKey: import.meta.env.VITE_OPENAI_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
