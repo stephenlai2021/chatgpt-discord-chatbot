@@ -52,4 +52,5 @@
   });
 </script>
 
-<p>{msg}</p>
+<p>ChatGPT Discord Chatbot:</p>
+<p>{msg}</p> 
