@@ -1,6 +1,6 @@
 <script>
   // Create a Discord Bot using OpenAI that interacts on the Discord Server
-  import { DISCORD_TOKEN, OPENAI_KEY } from "$env/static/private";
+  // import { DISCORD_TOKEN, OPENAI_KEY } from "$env/static/private";
   import { Client, GatewayIntentBits } from "discord.js";
   import { Configuration, OpenAIApi } from "openai";
 
@@ -16,13 +16,13 @@
   });
 
   // Log the bot into Discord
-  client.login(DISCORD_TOKEN);
+  client.login(import.meta.env.DISCORD_TOKEN);
   console.log("ChatGPT Bot is online on Discord");
 
   // Preoare connection to OpenAI API
   const configuration = new Configuration({
     organization: "org-CNyAxWDWmtUylw5fFDP3pLmc",
-    apiKey: OPENAI_KEY,
+    apiKey: import.meta.env.OPENAI_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
