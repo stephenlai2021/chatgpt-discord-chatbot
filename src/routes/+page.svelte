@@ -15,12 +15,14 @@
         GatewayIntentBits.MessageContent,
       ],
     });
-    client.login(import.meta.env.VITE_DISCORD_TOKEN);
+    // client.login(import.meta.env.VITE_DISCORD_TOKEN);
+    client.login('MTA2MDA2NzA2MzY2MzcwNjEzMw.Go88YI.mbwEdSFkFuWuFiT44cwadFRdtpjJ0nWIiZhdAU');
     console.log("ChatGPT Bot is online on Discord");
 
     const configuration = new Configuration({
       organization: "org-CNyAxWDWmtUylw5fFDP3pLmc",
-      apiKey: import.meta.env.VITE_OPENAI_KEY,
+      // apiKey: import.meta.env.VITE_OPENAI_KEY,
+      apiKey: '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',
     });
     const openai = new OpenAIApi(configuration);
 
