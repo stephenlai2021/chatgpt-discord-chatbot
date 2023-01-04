@@ -6,6 +6,7 @@
   import { onMount } from "svelte";
 
   let msg = "";
+  let msgs = [];
 
   onMount(() => {
     const client = new Client({
@@ -16,13 +17,15 @@
       ],
     });
     // client.login(import.meta.env.VITE_DISCORD_TOKEN);
-    client.login('MTA2MDA2NzA2MzY2MzcwNjEzMw.Go88YI.mbwEdSFkFuWuFiT44cwadFRdtpjJ0nWIiZhdAU');
+    client.login(
+      "MTA2MDA2NzA2MzY2MzcwNjEzMw.Go88YI.mbwEdSFkFuWuFiT44cwadFRdtpjJ0nWIiZhdAU"
+    );
     console.log("ChatGPT Bot is online on Discord");
 
     const configuration = new Configuration({
       organization: "org-CNyAxWDWmtUylw5fFDP3pLmc",
       // apiKey: import.meta.env.VITE_OPENAI_KEY,
-      apiKey: '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',
+      apiKey: "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",
     });
     const openai = new OpenAIApi(configuration);
 
@@ -44,6 +47,7 @@
         console.log("reply: ", gptRes.data.choices[0].text);
         message.reply(`${gptRes.data.choices[0].text}`);
         msg = gptRes.data.choices[0].text;
+        msgs = [...msgs, msg];
       } catch (error) {
         console.log(error);
       }
@@ -51,5 +55,7 @@
   });
 </script>
 
-<p>ChatGPT Discord Chatbot:</p>
-<p>{msg}</p>
+{#each msgs as msg}
+  <p>ChatGPT Discord Chatbot:</p>
+  <p>{msg}</p>
+{/each}
