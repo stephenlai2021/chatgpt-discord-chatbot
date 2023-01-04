@@ -40,7 +40,7 @@ client.on("messageCreate", async (message) => {
       stop: ["ChatGPT:", "Stephen Lai:"],
     });
 
-    console.log("reply: ", gptRes.data.choices[0].text);
+    // console.log("reply: ", gptRes.data.choices[0].text);
     message.reply(`${gptRes.data.choices[0].text}`);
     return
   } catch (error) {
